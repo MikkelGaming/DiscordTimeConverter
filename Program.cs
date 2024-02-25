@@ -9,7 +9,7 @@
         break;
 
         case "2":
-            AdditionTime();
+            SmartTimeAddition();
         break;
 
         default: 
@@ -25,15 +25,47 @@ void CurrentTime()
     Console.WriteLine($"<t:{UnixTime}:F>");
 }
 
-void AdditionTime()
+void SmartTimeAddition()
 {
     long UnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-    Console.WriteLine("Input new date\n---Menu---\n1 min = 60\n1 hour = 3600\n24 hours = 86400\n1 week = 604800\n1 month = 2419200\n6 months = 14515200\n 1 year = 29030400\n");
 
+    Console.WriteLine("Format:\n1m = 1 min\n1h = 1 hour\n1d = 1 day\n1w = 1 week\n1M = 1 month\n1y = 1 year");
     string? addition = Console.ReadLine();
-    long.TryParse(addition, out long add);
+    if (addition != null)
+    {
+        Char[] chars = addition.ToCharArray();
+        string addNum = addition.Substring(0, addition.Length - 1);
+        long add;
+        long.TryParse(addNum, out add);
 
-    UnixTime += add;
+        switch (chars[^1])
+        {
+            case 'm':
+                UnixTime += add * 60;
+            break;
+
+            case 'h':
+                UnixTime += add * 3600;
+            break;
+
+            case 'd':
+                UnixTime += add * 86400;
+            break;
+
+            case 'w':
+                UnixTime += add * 604800;
+            break;
+
+            case 'M':
+                UnixTime += add * 2419200;
+            break;
+
+            case 'y':
+                UnixTime += add * 2419200 * 12;
+            break;
+        }
+    }
+
     Console.WriteLine($"<t:{UnixTime}:F>");
 }
 
