@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DiscordTimeConverter/1.0.0": {
+        "runtime": {
+          "DiscordTimeConverter.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DiscordTimeConverter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
