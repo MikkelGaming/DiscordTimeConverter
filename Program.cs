@@ -23,6 +23,7 @@ void CurrentTime()
 {
     long UnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     Console.WriteLine($"<t:{UnixTime}:F>");
+    Console.ReadLine();
 }
 
 void SmartTimeAddition()
@@ -67,6 +68,7 @@ void SmartTimeAddition()
     }
 
     Console.WriteLine($"<t:{UnixTime}:F>");
+    Console.ReadLine();
 }
 
 
